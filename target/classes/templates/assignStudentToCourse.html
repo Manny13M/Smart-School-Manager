@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assign Student To Course</title>
+</head>
+
+<body>
+	<h1>Assign Student To Course</h1>
+
+	<form th:action="@{/assignStudentToCourse}" method="post">
+	
+		Students:	<select name="studentId" required> 
+						<option th:each="s : ${students}" th:text="${s.firstName} + ' ' + ${s.lastName}" th:value="${s.id}"></option>
+					</select><br>
+					
+		Courses:	<select name="courseId" required> 
+						<option th:each="c : ${courses}" th:text="${c.courseName} + ' : ' + ${c.courseCode}" th:value="${c.id}"></option>
+					</select><br> 
+		
+			        <input type="submit" value="Assign Student to Course">
+	</form>
+	
+	<a href="/">Home</a><br>
+
+</body>
+
+</html>

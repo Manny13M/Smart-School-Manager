@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assign Professor To Course</title>
+</head>
+<body>
+
+	<h1>Assign Professor To Course</h1>
+
+	<form th:action="@{/assignProfessorToCourse}" method="post">
+	
+		Professors:	<select name="professorId" required> 
+						<option th:each="p : ${professors}" th:text="${p.name}" th:value="${p.id}"></option>
+					</select><br>
+					
+					
+		Courses:	<select name="courseId" required> 
+						<option th:each="c : ${courses}" th:text="${c.courseName} + ' : ' + ${c.courseCode}" th:value="${c.id}"></option>
+					</select><br>
+		
+			        <input type="submit" value="Assign Professor to Course">
+	</form>
+	
+	<a href="/">Home</a><br>
+
+</body>
+</html>

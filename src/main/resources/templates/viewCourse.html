@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>View Course</title>
+</head>
+<body>
+
+	<h1 th:text="${course.courseName} + ' : ' + ${course.courseCode}"></h1>
+	<h3 th:if="${course.professor != null}" th:text="${course.professor.name}"></h3>
+	
+	<table th:if="${!#lists.isEmpty(course.students)}" border="1">
+	    <tr>
+	        <th>Students</th>
+
+	    </tr>
+	    <tr th:each="student: ${course.students}">
+
+	    	<td th:text="${student.firstName + ' ' + student.lastName}"></td>
+			<td><a th:href="@{/removeStudentFromCourse(studentId=${student.id}, courseId=${course.id})}">Remove from course</a></td>
+			
+	    </tr>
+	</table>
+	
+	<a href="/">Home</a><br>
+
+</body>
+</html>

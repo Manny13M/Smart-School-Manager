@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Professor</title>
+</head>
+<body>
+	<h1>Add Professor</h1>
+	
+	<form th:action="@{/addProfessor}" method="post" th:object="${professor}">
+	
+		Name: 	<input type="text" th:field="*{name}" required><br>
+				<input type="submit" value="Add Professor"><br>
+	</form>
+
+<a href="/">Home</a><br>
+
+</body>
+</html>

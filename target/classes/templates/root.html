@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Root Page</title>
+</head>
+
+<body>
+	<h1>Home Page</h1><br>
+	
+	<table border="1">
+	    <tr>
+	        <th>Student</th>
+	    </tr>
+	    <tr th:each="student: ${students}">
+	        <td><a th:href="@{/viewStudent/{id}(id=${student.id})}" th:text="${student.firstName + ' ' + student.lastName}"></a></td>
+	    </tr>
+	</table><br>
+	
+	<table border="1">
+	    <tr>
+	        <th>Professor</th>
+	    </tr>
+	    <tr th:each="professor: ${professors}">
+	        <td><a th:href="@{/viewProfessor/{id}(id=${professor.id})}" th:text="${professor.name}"></a></td>
+	    </tr>
+	</table><br>
+	
+	<table border="1">
+	    <tr>
+	        <th>Course</th>
+	    </tr>
+	    <tr th:each="course: ${courses}">
+	        <td><a th:href="@{/viewCourse/{id}(id=${course.id})}" th:text="${course.courseName} + ' : ' + ${course.courseCode}"></a></td>
+	    </tr>
+	</table><br>
+	
+	<a href="/addStudent">Add Student</a><br>
+	<a href="/addProfessor">Add Professor</a><br>
+	<a href="/addCourse">Add Course</a><br>
+	
+	<a href="/assignProfessorToCourse">Assign Professor To Course</a><br>
+	<a href="/assignStudentToCourse">Assign Student To Course</a><br>
+	
+</body>
+
+</html>

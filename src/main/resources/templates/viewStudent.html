@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>View Student</title>
+</head>
+
+<body>
+
+	<h1 th:text="${student.firstName} + ' ' + ${student.lastName}" th:object="${student}"></h1>
+	
+	<table border="1">
+	    <tr>
+	        <th>Course Name</th>
+	        <th>Course Code</th>
+	        <th>Professor</th>
+	    </tr>
+	    <tr th:each="course: ${student.courses}">
+	    	<td th:text="${course.courseName}"></td>
+	    	<td th:text="${course.courseCode}"></td>
+	    	<td th:text="${course.professor.name}"></td>
+	    </tr>
+	</table>
+	
+
+	<a href="/">Home</a><br>
+	
+</body>
+
+</html>

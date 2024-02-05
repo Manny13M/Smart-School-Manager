@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Course</title>
+</head>
+<body>
+	<h1>Add Course</h1>
+	
+	<form th:action="@{/addCourse}" method="post" th:object="${course}">
+	
+		Course Name: 	<input type="text" th:field="*{courseName}" required><br>
+		Course Code: 	<input type="text" th:field="*{courseCode}" required><br>
+						<input type="submit" value="Add Course"><br>
+	</form>
+
+<a href="/">Home</a><br>
+
+</body>
+</html>
