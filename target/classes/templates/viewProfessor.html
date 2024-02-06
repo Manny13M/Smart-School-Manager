@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>View Professor</title>
+<link rel="stylesheet" type="text/css" href="/css/stylesViewProfessor.css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 	    
 		<table border="1">
 		    <tr>
-		        <th>Student Name</th>
+		        <th>Students</th>
 		    </tr>
 		    <tr th:each="student: ${course.students}">
 		    	<td th:text="${student.firstName + ' ' + student.lastName}"></td>

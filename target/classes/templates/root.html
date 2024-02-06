@@ -2,15 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Root Page</title>
+<title>Home Page</title>
+<link rel="stylesheet" type="text/css" href="/css/stylesRoot.css">
 </head>
 
 <body>
-	<h1>Home Page</h1><br>
+	<h1>Smart School Manager</h1><br>
 	
 	<table border="1">
 	    <tr>
-	        <th>Student</th>
+	        <th>Students</th>
 	    </tr>
 	    <tr th:each="student: ${students}">
 	        <td><a th:href="@{/viewStudent/{id}(id=${student.id})}" th:text="${student.firstName + ' ' + student.lastName}"></a></td>
@@ -19,7 +20,7 @@
 	
 	<table border="1">
 	    <tr>
-	        <th>Professor</th>
+	        <th>Professors</th>
 	    </tr>
 	    <tr th:each="professor: ${professors}">
 	        <td><a th:href="@{/viewProfessor/{id}(id=${professor.id})}" th:text="${professor.name}"></a></td>
@@ -28,7 +29,7 @@
 	
 	<table border="1">
 	    <tr>
-	        <th>Course</th>
+	        <th>Courses</th>
 	    </tr>
 	    <tr th:each="course: ${courses}">
 	        <td><a th:href="@{/viewCourse/{id}(id=${course.id})}" th:text="${course.courseName} + ' : ' + ${course.courseCode}"></a></td>
