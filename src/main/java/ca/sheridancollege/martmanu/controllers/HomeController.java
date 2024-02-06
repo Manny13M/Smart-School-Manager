@@ -22,6 +22,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class HomeController {
 	
+	//testing commit from eclipse
+	
 	StudentRepository studentRepo;
 	ProfessorRepository professorRepo;
 	CourseRepository courseRepo;
