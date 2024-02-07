@@ -3,21 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Assign Professor To Course</title>
+<link rel="stylesheet" type="text/css" href="/css/stylesRoot.css">
 </head>
 <body>
 
 	<h1>Assign Professor To Course</h1>
+	
+	<table border="1">
+	    <tr>
+	        <th>Course</th>
+	        <th>Professor</th>
+
+	    </tr>
+	    <tr th:each="course: ${courses}">
+
+	    	<td th:text="${course.courseName + ' ' + course.courseCode}"></td>
+			<td th:if="${course.professor != null}" th:text="${course.professor.name}"></td>
+			
+	    </tr>
+	</table>
 
 	<form th:action="@{/assignProfessorToCourse}" method="post">
+	
+		Courses:	<select name="courseId" required> 
+						<option th:each="c : ${courses}" th:text="${c.courseName} + ' : ' + ${c.courseCode}" th:value="${c.id}"></option>
+					</select><br>
 	
 		Professors:	<select name="professorId" required> 
 						<option th:each="p : ${professors}" th:text="${p.name}" th:value="${p.id}"></option>
 					</select><br>
 					
-					
-		Courses:	<select name="courseId" required> 
-						<option th:each="c : ${courses}" th:text="${c.courseName} + ' : ' + ${c.courseCode}" th:value="${c.id}"></option>
-					</select><br>
 		
 			        <input type="submit" value="Assign Professor to Course">
 	</form>

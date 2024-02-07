@@ -8,6 +8,4 @@ import ca.sheridancollege.martmanu.beans.Course;
 
 public interface CourseRepository extends JpaRepository <Course, Long>{
 
-	// JPA method to find all courses without a professor
-    List<Course> findAllByProfessorIsNull();
 }

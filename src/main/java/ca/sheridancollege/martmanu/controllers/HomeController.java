@@ -170,7 +170,7 @@ public class HomeController {
 	public String getAssignProfessorToCourse(Model model) {
 		
 		model.addAttribute("professors", professorRepo.findAll());
-		model.addAttribute("courses", courseRepo.findAllByProfessorIsNull());
+		model.addAttribute("courses", courseRepo.findAll());
 		
 		return "assignProfessorToCourse.html";
 	}
@@ -196,7 +196,7 @@ public class HomeController {
 			courseRepo.save(selectedCourse);
 		}
 		
-		return "redirect:/";
+		return "redirect:/assignProfessorToCourse";
 	}
 	
 	@GetMapping("/assignStudentToCourse")

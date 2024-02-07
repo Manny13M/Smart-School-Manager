@@ -3,10 +3,52 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #f7f7f7; /* Set a light background color for the body  */
 }
 
 h1 {
     color: #333;
+}
+
+form {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="text"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+} 
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
 }
 
 table {
@@ -16,6 +58,7 @@ table {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
 }
 
 th, td {
@@ -25,26 +68,30 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #3498db; /* Updated blue color for th (table header) */
+    color: #fff; /* Text color for the table header */
+}
+
+td {
+	background-color: #fff;
+}
+
+td a {
+    text-decoration: none;
+    color: #424242; /* Set link text color to black */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 a {
     text-decoration: none;
-    color: #3498db;
+	color: #0432ff;   
+	transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
-a:hover {
-    color: #2980b9;
+a:hover,
+td a:hover {
+	color: rgb(255, 38, 0);
 }
 
-a:visited {
-    color: #7f8c8d;
-}
 
-a:active {
-    color: #e74c3c;
-}
 
-a:focus {
-    outline: none;
-}
