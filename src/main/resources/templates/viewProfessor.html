@@ -7,27 +7,27 @@
 </head>
 
 <body>
+	<h1>Professor</h1>
+	<h3 th:text="${'Name : ' + professor.name}" th:object="${professor}"></h3>
+    <h3 th:text="${'Id : ' + professor.id}" th:object="${professor}"></h3>
+    
+    <div class="table-container">
+        <div th:each="course: ${professor.courses}">
+            <h2 th:text="${'Course : ' + course.courseName} + ', ' + ${course.courseCode}"></h2>
+            
+            <table border="1" class="custom-table custom-table-prof-courses">
+                <tr>
+                    <th>Id</th>
+                    <th>Students</th>
+                </tr>
+                <tr th:each="student: ${course.students}">
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.firstName + ' ' + student.lastName}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-
-
-	<h1 th:text="${professor.name}" th:object="${professor}"></h1>
-	
-	<div th:each="course: ${professor.courses}">
-
-	    <h3 th:text = "${course.courseName} + ' : ' + ${course.courseCode}"></h3>
-	    
-		<table border="1">
-		    <tr>
-		        <th>Students</th>
-		    </tr>
-		    <tr th:each="student: ${course.students}">
-		    	<td th:text="${student.firstName + ' ' + student.lastName}"></td>
-		    </tr>
-		</table>
-	</div>
-
-	<a href="/">Home</a><br>
-	
-
+    <a href="/">Back to Home</a><br>
 </body>
 </html>

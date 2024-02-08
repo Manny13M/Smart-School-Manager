@@ -7,43 +7,57 @@
 </head>
 
 <body>
-	<h1>Smart School Manager</h1><br>
-	
-	<table border="1">
-	    <tr>
-	        <th>Students</th>
-	    </tr>
-	    <tr th:each="student: ${students}">
-	        <td><a th:href="@{/viewStudent/{id}(id=${student.id})}" th:text="${student.firstName + ' ' + student.lastName}"></a></td>
-	    </tr>
-	</table>
-	
-	<a href="/addStudent">Add Student</a><br>
-	<a href="/assignStudentToCourse">Assign Student To Course</a><br><br>
-	
-	<table border="1">
-	    <tr>
-	        <th>Professors</th>
-	    </tr>
-	    <tr th:each="professor: ${professors}">
-	        <td><a th:href="@{/viewProfessor/{id}(id=${professor.id})}" th:text="${professor.name}"></a></td>
-	    </tr>
-	</table>
-	
-	<a href="/addProfessor">Add Professor</a><br>
-	<a href="/assignProfessorToCourse">Assign Professor To Course</a><br><br>
-	
-	<table border="1">
-	    <tr>
-	        <th>Courses</th>
-	    </tr>
-	    <tr th:each="course: ${courses}">
-	        <td><a th:href="@{/viewCourse/{id}(id=${course.id})}" th:text="${course.courseName} + ' : ' + ${course.courseCode}"></a></td>
-	    </tr>
-	</table>
-	
-	<a href="/addCourse">Add Course</a><br><br>
-	
+    <h1>Smart School Manager</h1><br>
+
+    <div class="table-container">
+        <div class="table-section">
+            <a href="/addStudent" class="custom-link">Add Student</a><br>
+            <a href="/assignStudentToCourse" class="custom-link">Assign Student To Course</a><br>
+
+            <table border="1">
+                <tr>
+                	<th>Id</th>
+                    <th>Students</th>              
+                </tr>
+                <tr th:each="student: ${students}">
+                	<td><a th:href="@{/viewStudent/{id}(id=${student.id})}" th:text="${student.id}"></a></td>
+                    <td><a th:href="@{/viewStudent/{id}(id=${student.id})}" th:text="${student.firstName + ' ' + student.lastName}"></a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-section">
+            <a href="/addProfessor" class="custom-link">Add Professor</a><br>
+            <a href="/assignProfessorToCourse" class="custom-link">Assign Professor To Course</a><br>
+
+            <table border="1">
+                <tr>
+                	<th>Id</th>
+                    <th>Professors</th>
+                </tr>
+                <tr th:each="professor: ${professors}">
+                	<td><a th:href="@{/viewProfessor/{id}(id=${professor.id})}" th:text="${professor.id}"></a></td>
+                    <td><a th:href="@{/viewProfessor/{id}(id=${professor.id})}" th:text="${professor.name}"></a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-section">
+            <a href="/addCourse" class="custom-link">Add Course</a><br>
+			<a class="custom-link"></a><br><br>
+            <table border="1">
+                <tr>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                </tr>
+                <tr th:each="course: ${courses}">
+                	<td><a th:href="@{/viewCourse/{id}(id=${course.id})}" th:text="${course.courseCode}"></a></td>
+                    <td><a th:href="@{/viewCourse/{id}(id=${course.id})}" th:text="${course.courseName}"></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </body>
 
 </html>

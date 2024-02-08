@@ -12,7 +12,7 @@
 	<form th:action="@{/assignStudentToCourse}" method="post">
 	
 		Students:	<select name="studentId" required> 
-						<option th:each="s : ${students}" th:text="${s.firstName} + ' ' + ${s.lastName}" th:value="${s.id}"></option>
+						<option th:each="s : ${students}" th:text="${s.id + ' - ' + s.firstName} + ' ' + ${s.lastName}" th:value="${s.id}"></option>
 					</select><br>
 					
 		Courses:	<select name="courseId" required> 
@@ -22,7 +22,7 @@
 			        <input type="submit" value="Assign Student to Course">
 	</form>
 	
-	<a href="/">Home</a><br>
+	<a href="/">Back to Home</a><br>
 
 </body>
 

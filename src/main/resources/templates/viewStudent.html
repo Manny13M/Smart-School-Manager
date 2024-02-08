@@ -7,10 +7,11 @@
 </head>
 
 <body>
-
-	<h1 th:text="${student.firstName} + ' ' + ${student.lastName}" th:object="${student}"></h1>
+	<h1>Student</h1>
+	<h3 th:text="${'Name: ' + student.firstName + ' ' + student.lastName}" th:object="${student}"></h3>
+	<h3 th:text="${'Id: ' + student.id}" th:object="${student}"></h3>
 	
-	<table border="1">
+	<table th:if="${!#lists.isEmpty(student.courses)}" border="1" class="custom-table">
 	    <tr>
 	        <th>Course Name</th>
 	        <th>Course Code</th>
@@ -24,7 +25,7 @@
 	</table>
 	
 
-	<a href="/">Home</a><br>
+	<a href="/">Back to Home</a><br>
 	
 </body>
 
