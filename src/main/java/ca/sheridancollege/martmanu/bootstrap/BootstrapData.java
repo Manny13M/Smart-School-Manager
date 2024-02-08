@@ -2,6 +2,7 @@ package ca.sheridancollege.martmanu.bootstrap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -159,43 +160,60 @@ public class BootstrapData implements CommandLineRunner {
         Student s29 = Student.builder().firstName("Dylan").lastName("Evans").courses(new ArrayList<Course>()).build();
         
         Student s30 = Student.builder().firstName("Nora").lastName("Adams").courses(new ArrayList<Course>()).build();
+
 		
-		studentRepo.save(s1);
-		studentRepo.save(s2);
-		studentRepo.save(s3);
-		studentRepo.save(s4);
-		studentRepo.save(s5);
-		studentRepo.save(s6);
+		// Creating two groups of students
+		List<Student> studentsGroup1 = Arrays.asList(s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14);
+		List<Student> studentsGroup2 = Arrays.asList(s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25, s26, s27, s28, s29, s30);
 		
-		 // Assigning students to courses
-        c1.getStudents().addAll(Arrays.asList(s1, s2, s3, s4, s5, s6));
-        c2.getStudents().addAll(Arrays.asList(s1, s2, s3, s4, s5, s6));
-        c3.getStudents().addAll(Arrays.asList(s1, s2, s3, s4, s5, s6));
-        c4.getStudents().addAll(Arrays.asList(s1, s2, s3, s4, s5, s6));
-        c5.getStudents().addAll(Arrays.asList(s1, s2, s3, s4, s5, s6));
-        c6.getStudents().addAll(Arrays.asList(s1, s2, s3, s4, s5, s6));
-        
-        courseRepo.save(c1);
+		for (Student student : studentsGroup1) {
+			studentRepo.save(student);
+		}
+
+		for (Student student : studentsGroup2) {
+			studentRepo.save(student);
+		}
+		
+		// Creating two lists of courses
+		List<Course> coursesGroup1 = Arrays.asList(c1, c2, c3);		
+		List<Course> coursesGroup2 = Arrays.asList(c4, c5, c6);	
+		
+		courseRepo.save(c1);
+		courseRepo.save(c2);
+		courseRepo.save(c3);
+		courseRepo.save(c4);
+		courseRepo.save(c5);
+		courseRepo.save(c6);
+		
+		// Assigning students to courses
+		c1.getStudents().addAll(studentsGroup1);
+		c2.getStudents().addAll(studentsGroup1);
+		c3.getStudents().addAll(studentsGroup1);
+
+		c4.getStudents().addAll(studentsGroup2);
+		c5.getStudents().addAll(studentsGroup2);
+		c6.getStudents().addAll(studentsGroup2);
+
+		// Saving courses first
+		courseRepo.save(c1);
 		courseRepo.save(c2);
 		courseRepo.save(c3);
 		courseRepo.save(c4);
 		courseRepo.save(c5);
 		courseRepo.save(c6);
         
-        // Mapping courses to students
-        s1.getCourses().addAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
-        s2.getCourses().addAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
-        s3.getCourses().addAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
-        s4.getCourses().addAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
-        s5.getCourses().addAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
-        s6.getCourses().addAll(Arrays.asList(c1, c2, c3, c4, c5, c6));
-		
-		studentRepo.save(s1);
-		studentRepo.save(s2);
-		studentRepo.save(s3);
-		studentRepo.save(s4);
-		studentRepo.save(s5);
-		studentRepo.save(s6);
+        
+		// Saving students after assigning them to courses
+		for (Student student : studentsGroup1) {
+		    student.getCourses().addAll(coursesGroup1);
+		}
+
+		for (Student student : studentsGroup2) {
+		    student.getCourses().addAll(coursesGroup2);
+		}
+
+		studentRepo.saveAll(studentsGroup1);
+		studentRepo.saveAll(studentsGroup2);
 		
 
 	}

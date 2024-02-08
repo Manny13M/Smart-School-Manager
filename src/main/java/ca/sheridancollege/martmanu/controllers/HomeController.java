@@ -233,7 +233,7 @@ public class HomeController {
 			
 		}
 		
-		return "redirect:/";
+		return "redirect:/assignStudentToCourse";
 	}
 	
 	

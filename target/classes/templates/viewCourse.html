@@ -7,24 +7,27 @@
 </head>
 <body>
 
-	<h1 th:text="${course.courseName} + ' : ' + ${course.courseCode}"></h1>
-	<h3 th:if="${course.professor != null}" th:text="${course.professor.name}"></h3>
+	<h1>Course</h1>
+	<h3 th:text="${'Course Name : ' + course.courseName}"></h3>
+	<h3 th:text="${'Course Code : ' + course.courseCode}"></h3>
+	<h3 th:if="${course.professor != null}" th:text="${'Professor : ' + course.professor.name}"></h3>
 	
-	<table th:if="${!#lists.isEmpty(course.students)}" border="1">
+	<table th:if="${!#lists.isEmpty(course.students)}" border="1" class="custom-table">
 	    <tr>
+	    	<th>Id</th>
 	        <th>Students</th>
 	        <th>Remove Student From Course</th>
 
 	    </tr>
 	    <tr th:each="student: ${course.students}">
-
+			<td th:text="${student.id}"></td>
 	    	<td th:text="${student.firstName + ' ' + student.lastName}"></td>
 			<td><a th:href="@{/removeStudentFromCourse(studentId=${student.id}, courseId=${course.id})}">Remove</a></td>
 			
 	    </tr>
 	</table>
 	
-	<a href="/">Home</a><br>
+	<a href="/">Back to Home</a><br>
 
 </body>
 </html>
