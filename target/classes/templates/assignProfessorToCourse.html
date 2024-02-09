@@ -16,8 +16,7 @@
 
 	    </tr>
 	    <tr th:each="course: ${courses}">
-
-	    	<td th:text="${course.courseName + ' ' + course.courseCode}"></td>
+	    	<td th:text="${course.courseName + ' : ' + course.courseCode}"></td>
 			<td th:if="${course.professor != null}" th:text="${course.professor.name}"></td>
 			
 	    </tr>
