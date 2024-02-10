@@ -128,7 +128,7 @@ public class HomeController {
 			studentRepo.save(student);
 		}
 
-		return "redirect:/";
+		return "redirect:/viewCourse/" + courseId;
 	}	
 	
 	//----------------------------------------------------------------------------
